@@ -1,6 +1,6 @@
 <template>
   <div>
-    results
+    results -- {{this.query}}
   </div>
 </template>
 
@@ -8,6 +8,7 @@
 
 export default {
   name: 'results',
+  props: ['query'],
   data () {
     return {
     }

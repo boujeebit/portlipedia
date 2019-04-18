@@ -14,6 +14,7 @@
         <div class="clear">
           <button v-on:click="clear" v-if="output">CLEAR</button>
         </div>
+        <router-link tag="button" class="btn btn-secondary btn-sm" style="float: right" :to="{ name: 'Results', params: { query: 'vue' } }">Edit</router-link>
       </div>
   </div>
 </template>
