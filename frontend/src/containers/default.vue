@@ -3,11 +3,15 @@
 </template>
 
 <script>
+
 export default {
-  name: 'app'
+  name: 'default',
+  data () {
+    return {
+    }
+  }
 }
 </script>
 
-<style lang="scss">
-  @import 'assets/scss/style.scss';
+<style>
 </style>
