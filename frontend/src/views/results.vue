@@ -29,8 +29,6 @@ export default {
     }
   },
   beforeMount (){
-    // this.$route.params.query ? console.log("true") : this.$router.push({name: "Search"});
-
     let self = this;
     api(`query { search(search:"${this.$route.params.query}") { name port protocol description } }`).then(data => {
       console.log(data.search)
