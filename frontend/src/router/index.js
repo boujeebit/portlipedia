@@ -9,26 +9,15 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Search',
       component: () =>
-        import("@/containers/default"),
-      redirect: { name: 'Search' },
-      name: 'Root',
-      children: [
-        {
-          path: '/_',
-          name: 'Search',
-          component: () =>
-            import("@/views/index")
-        },
-        {
-          path: '/results?q=:query',
-          name: 'Results',
-          // props: (route) => ({ query: route.query.q }),
-          props: (route) => ({ query: route.query.search }),
-          component: () =>
-            import("@/views/results")
-        }
-      ]
+        import("@/views/index")
+    },
+    {
+      path: '/:query',
+      name: 'Results',
+      component: () =>
+        import("@/views/results")
     },
     {
       path: "*",

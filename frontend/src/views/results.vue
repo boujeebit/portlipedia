@@ -1,7 +1,19 @@
 <template>
   <div>
+      <div class="results-search">
+        <div class="search">
+          <input v-model="$route.params.query" v-on:keyup.enter="run" autofocus/>
+          <!-- <button class="search-button" v-on:click="run">Search</button> -->
+        </div>
+      </div>
     results -- {{this.$route.params.query}}
-    {{output}}
+
+
+
+    <br>
+    <div class="code-block" v-if="output">
+          <pre id="json">{{output}}</pre>
+        </div>
   </div>
 </template>
 
@@ -17,7 +29,7 @@ export default {
     }
   },
   beforeMount (){
-    this.$route.params.query ? console.log("true") : this.$router.push({name: "Search"});
+    // this.$route.params.query ? console.log("true") : this.$router.push({name: "Search"});
 
     let self = this;
     api(`query { search(search:"${this.$route.params.query}") { name port protocol description } }`).then(data => {
@@ -29,4 +41,9 @@ export default {
 </script>
 
 <style>
+.results-search {
+  height: 100px;
+  background-color: #fff;
+  border-bottom: 1px solid #ebebeb;
+}
 </style>
