@@ -21,10 +21,10 @@ export default new Router({
             import("@/views/index")
         },
         {
-          path: '/search',
+          path: '/results?q=:query',
           name: 'Results',
           // props: (route) => ({ query: route.query.q }),
-          props: true,
+          props: (route) => ({ query: route.query.search }),
           component: () =>
             import("@/views/results")
         }

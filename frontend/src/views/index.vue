@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import { api } from '@/api'
-
 export default {
   name: 'app',
   data () {
@@ -33,11 +31,7 @@ export default {
   methods: {
     run() {
       console.log(this.search)
-      let self = this;
-      api(`query { search(search:"${this.search}") { name port protocol description } }`).then(data => {
-        console.log(data.search)
-        self.output = data.search;
-      }) 
+      this.$router.push({ name: 'Results', params: { query: this.search } })
     },
     clear(){
       this.search = "";
