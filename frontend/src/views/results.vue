@@ -3,7 +3,7 @@
       <div class="results-search">
         <div class="top-margin-10">
           <div class="logo-container">
-            <img height="40" src="/static/img/logo.png" class="logo">
+            <img height="40" src="/static/img/logo.png" class="logo" @click="$router.push({name: 'Search'});">
           </div>
         </div>
         <div class="search">
