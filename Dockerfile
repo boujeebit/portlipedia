@@ -1,3 +1,14 @@
+FROM node:alpine as builder
+WORKDIR '/app'
+COPY ./frontend .
+RUN yarn install
+RUN yarn build
+RUN mv dist/static/js dist/js
+RUN rm -rf dist/static/
+RUN cat dist/index.html | sed 's/\/css\//\/static\/css\//g' > dist/temp.html
+RUN mv dist/temp.html dist/index.html
+
+
 FROM ubuntu:18.04
 
 LABEL maintainer="Mickey Hefley <@0xCODES>" 
@@ -24,6 +35,7 @@ COPY backend/requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
 
 COPY backend/ /var/www/backend/
+COPY --from=builder /app/dist/ /var/www/backend/static/
 
 RUN chmod 664 /var/www/backend/db.sqlite3
 RUN chown -R www-data:www-data /var/www/
