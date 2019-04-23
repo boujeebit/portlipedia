@@ -17,6 +17,14 @@
     <br>
     Loading: {{loading}} -- {{search}}
 
+  <div v-for="entry in output" :key="entry.id">
+    <h3>Port: {{entry.port}} ({{entry.name}})</h3>
+    <span>protocol: {{entry.protocol}}</span>
+    <p>{{entry.description}}</p>
+
+    <hr>
+  </div>
+
 
     <div class="code-block" v-if="output">
           <pre id="json">{{output}}</pre>
