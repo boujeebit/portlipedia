@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t 0xCODEs/portlipedia -f Dockerfile.dev .
+  - docker build -t portlipedia -f Dockerfile.dev .
 
 script: 
-  - docker run 0xCODEs/portlipedia
+  - docker run portlipedia
