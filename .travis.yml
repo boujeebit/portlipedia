@@ -14,5 +14,5 @@ script:
 
 after_success:
   - docker build -t portlipedia .
-  - echo "$DOCKER_PW" | docker login -u "$DOCKER_ID" --passwd-stdin
+  - echo "$DOCKER_PW" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push portlipedia
