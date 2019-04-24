@@ -13,6 +13,6 @@ script:
   - docker run portlipedia-test
 
 after_success:
-  - docker build -t portlipedia .
+  - docker build -t 0xcodes/portlipedia .
   - echo "$DOCKER_PW" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push portlipedia
+  - docker push 0xcodes/portlipedia
