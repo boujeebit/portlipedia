@@ -1,37 +1,33 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from "vue";
+import Router from "vue-router";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  mode: "history",
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     {
-      path: '/',
-      component: () =>
-        import("@/containers/default"),
-      redirect: { name: 'Search' },
-      name: 'Root',
+      path: "/",
+      component: () => import("@/containers/default"),
+      redirect: { name: "Search" },
+      name: "Root",
       children: [
         {
-          path: '/_',
-          name: 'Search',
-          component: () =>
-            import("@/views/Search")
+          path: "/_",
+          name: "Search",
+          component: () => import("@/views/Search")
         },
         {
-          path: '/results',
-          name: 'Results',
-          component: () =>
-            import("@/views/Results")
+          path: "/results",
+          name: "Results",
+          component: () => import("@/views/Results")
         }
       ]
     },
     {
       path: "*",
-      redirect: { name: 'Search' }
+      redirect: { name: "Search" }
     }
-
   ]
-})
+});
