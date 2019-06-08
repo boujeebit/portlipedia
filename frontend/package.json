@@ -8,10 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "core-js": "^2.6.5",
     "font-awesome": "4.7.0",
+    "fstream": "^1.0.12",
     "node-sass": "^4.11.0",
+    "querystringify": "^2.0.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6"
